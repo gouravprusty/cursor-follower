@@ -1,0 +1,70 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*--------RESET CSS--------*/
+body {
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	margin:auto;
+	padding:0;
+	background:#fff;
+	color:#000000;
+	text-align:center;
+	font-family: 'Inter', sans-serif;
+	font-weight:400;
+	}
+div, ul, h1, h2, h3, h4, h5, li, p, img, form, input, textarea {margin: 0;padding: 0;}
+header, section, footer, aside, nav, main, article, figure {display: block;}
+table, tr, td {border: 0;}
+a {outline: none;color: inherit;text-decoration: none;}
+img {border: none; height:auto;}
+li {list-style: none;}
+* {box-sizing: border-box;}
+.img-full {max-width: 100%;}
+.clearall {
+	clear: both;
+	font-size: 1px;
+	line-height: 1px;
+	height: 1px;
+	}
+.wrapper{
+	width:100vw;
+	height:100vh;
+	position:relative;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	background: rgb(72,244,248);
+	background: linear-gradient(180deg, rgba(72,244,248,1) 0%, rgba(200,241,58,1) 100%);
+	}
+.container{
+	width:500px;
+	height:300px;
+	display:flex;
+	overflow-x:scroll;
+	scroll-snap-type:x mandatory;
+	}
+.container img{
+	width:100%;
+	scroll-snap-align:center;
+	}
+.ball {
+	width: 40px;
+	height: 40px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	border-radius: 50%;
+	pointer-events: none;
+	background:#FC9;
+	animation:party 2s ease-in-out infinite;
+	}
+@keyframes party{
+0%{ background:#FFCCFF;}
+25%{ background:#6FC;}
+50%{ background:#CF9;}
+75%{ background:#9FF;}
+100%{ background:#FFCCFF;}
+	}

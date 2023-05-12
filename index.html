@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>scroller</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+	<div class="wrapper">
+    	<div class="container">
+        	<img src="wallpaperflare.com_wallpaper (1).jpg">
+            <img src="wallpaperflare.com_wallpaper (2).jpg">
+            <img src="wallpaperflare.com_wallpaper (3).jpg">
+            <img src="wallpaperflare.com_wallpaper (4).jpg">
+            <img src="wallpaperflare.com_wallpaper (5).jpg">
+            <img src="wallpaperflare.com_wallpaper (6).jpg">
+            <img src="wallpaperflare.com_wallpaper (7).jpg">
+            <img src="wallpaperflare.com_wallpaper (8).jpg">
+            <img src="wallpaperflare.com_wallpaper (9).jpg">
+        </div>
+        <div class="ball"></div>
+    </div>
+
+<script type="text/javascript" src="gsap-latest-beta.min.js"></script>
+<script type="text/javascript">
+
+	gsap.set(".ball", {xPercent: -60, yPercent: -70});
+	const ball = document.querySelector(".ball");
+	const pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+	const mouse = { x: pos.x, y: pos.y };
+	const speed = 0.1;
+	
+	const xSet = gsap.quickSetter(ball, "x", "px");
+	const ySet = gsap.quickSetter(ball, "y", "px");
+	
+	window.addEventListener("mousemove", e => {    
+		mouse.x = e.x;
+		mouse.y = e.y;  
+	});
+	gsap.ticker.add(() => {
+		const dt = 1.0 - Math.pow(1.0 - speed, gsap.ticker.deltaRatio()); 
+		
+		pos.x += (mouse.x - pos.x) * dt;
+		pos.y += (mouse.y - pos.y) * dt;
+		xSet(pos.x);
+		ySet(pos.y);
+	});
+
+</script>
+</body>
+</html>
